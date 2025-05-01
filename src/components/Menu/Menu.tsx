@@ -43,8 +43,8 @@ export default function Menu(props: Props) {
       <Divider />
       <List>
         {list.map((link) => (
-          <NavLink to={link.path}>
-            <ListItem key={link.label} disablePadding>
+          <NavLink to={link.path} key={link.label}>
+            <ListItem disablePadding>
             <ListItemButton>
               <ListItemText primary={link.label} />
             </ListItemButton>

@@ -1,9 +1,11 @@
-import { Outlet } from "react-router";
+import { Navigate, Outlet } from "react-router";
+import { UserRole } from "../../router";
 
-export default function AppLayout() {
+export default function AppLayout({ userRole }: { userRole: UserRole }) {
   return (
     <div>
-      <Outlet/>
+      {userRole === UserRole.student ? <Navigate to='/student' /> : <Navigate to='/root' />}
+      <Outlet />
     </div>
   )
 }
