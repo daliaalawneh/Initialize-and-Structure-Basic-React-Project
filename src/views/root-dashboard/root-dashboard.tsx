@@ -1,4 +1,4 @@
-import Menu from "../../components/AppLayout/Menu/Menu";
+import Menu from "../../components/Menu/Menu";
 import { rootList } from "../../constants/indes";
 
 const RootDashboard = () => {

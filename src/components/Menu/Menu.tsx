@@ -9,7 +9,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import Toolbar from '@mui/material/Toolbar';
-import { MenuLink } from '../../../constants/indes';
+import { MenuLink } from '../../constants/indes';
 import { NavLink } from 'react-router';
 
 const drawerWidth = 240;

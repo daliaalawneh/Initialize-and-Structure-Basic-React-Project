@@ -5,7 +5,7 @@ export type MenuLink = {
 
 export const studentList:MenuLink[] = [
   { label: "Dashboard", path: "" },
-  { label: "My Orders", path: "Orders" },
+  { label: "My Orders", path: "orders" },
   { label: "Assignments", path: "assignments" },
   { label: "Grades", path: "grades" },
   { label: "Schedule", path: "schedule" },
