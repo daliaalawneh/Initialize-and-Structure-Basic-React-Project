@@ -5,12 +5,12 @@ import { useContext } from "react";
 import { ExamContext } from "../../context/ExamContext.tsx";
 
 const StudentDashboard = () => {
-    const {ExamType} = useContext(ExamContext);
+    const {examType} = useContext(ExamContext);
     return (
         <div>
             <Menu list={studentList} />
             <h1>Student Dashboard</h1>
-            <h2>{ExamType}</h2>
+            <h2>{examType}</h2>
             <Outlet />
         </div>
     )
