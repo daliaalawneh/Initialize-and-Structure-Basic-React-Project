@@ -6,16 +6,23 @@ import { ExamProvider } from "../context/ExamContext.tsx"
 import StudentLayout from "../views/student-dashboard/StudentLayout.tsx"
 import StudentDashboard from "../views/student-dashboard/student-dashboard.tsx"
 import RootLayout from "../views/root-dashboard/RootLayout.tsx"
+import GuardedRoute from "../components/GuardedRoute/GuardedRoute.tsx"
 
 export enum UserRole {
   student = "student",
   root = "root"
 }
+export type UserRoleType = {
+  type: UserRole
+}
 const Router = () => {
-  const userRole = UserRole.student; 
+  const userRole: UserRoleType = { type: UserRole.root };
   return (
     <Routes>
-      <Route path="/" element={<AppLayout userRole={userRole}/>} >
+      <Route path="/" element={
+        <GuardedRoute role={userRole.type}>
+          <AppLayout />
+        </GuardedRoute>} >
         <Route path="root" element={<RootLayout />}>
           <Route index element={<RootDashboard />} />
         </Route>
