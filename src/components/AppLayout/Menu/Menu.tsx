@@ -9,6 +9,8 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import Toolbar from '@mui/material/Toolbar';
+import { MenuLink } from '../../../constants/indes';
+import { NavLink } from 'react-router';
 
 const drawerWidth = 240;
 
@@ -18,7 +20,7 @@ interface Props {
    * Remove this when copying and pasting into your project.
    */
   window?: () => Window;
-  list: string[];
+  list: MenuLink[];
 }
 
 export default function Menu(props: Props) {
@@ -40,12 +42,14 @@ export default function Menu(props: Props) {
       <Toolbar />
       <Divider />
       <List>
-        {list.map((text) => (
-          <ListItem key={text} disablePadding>
+        {list.map((link) => (
+          <NavLink to={link.path}>
+            <ListItem key={link.label} disablePadding>
             <ListItemButton>
-              <ListItemText primary={text} />
+              <ListItemText primary={link.label} />
             </ListItemButton>
           </ListItem>
+          </NavLink>
         ))}
       </List>
       <Divider />
