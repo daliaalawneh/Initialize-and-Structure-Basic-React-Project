@@ -16,12 +16,12 @@ export type UserRoleType = {
   type: UserRole
 }
 const Router = () => {
-  const userRole: UserRoleType = { type: UserRole.root };
+  const userRole: UserRoleType = { type: UserRole.student };
   return (
     <Routes>
       <Route path="/" element={
         <GuardedRoute role={userRole.type}>
-          <AppLayout />
+          <AppLayout role={userRole.type} />
         </GuardedRoute>} >
         <Route path="root" element={<RootLayout />}>
           <Route index element={<RootDashboard />} />

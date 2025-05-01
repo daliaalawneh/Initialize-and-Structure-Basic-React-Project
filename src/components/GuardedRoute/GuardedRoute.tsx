@@ -9,8 +9,7 @@ interface GuardedRouteProps {
 
 const GuardedRoute: React.FC<GuardedRouteProps> = ({ role, children }) => {
   const location = useLocation()
-  const [, route] = location.pathname.split('/')
-  if (route.includes(role)) {
+  if (location.pathname === '/' || location.pathname.startsWith(`/${role}`)) {
     return children
   }
   return <>Un Authorized</>;
