@@ -7,19 +7,24 @@ import StudentLayout from "../views/student-dashboard/StudentLayout.tsx"
 import StudentDashboard from "../views/student-dashboard/student-dashboard.tsx"
 import RootLayout from "../views/root-dashboard/RootLayout.tsx"
 
+export enum UserRole {
+  student = "student",
+  root = "root"
+}
 const Router = () => {
+  const userRole = UserRole.student; 
   return (
     <Routes>
-      <Route path="/" element={<AppLayout />} >
+      <Route path="/" element={<AppLayout userRole={userRole}/>} >
         <Route path="root" element={<RootLayout />}>
-          <Route path="" element={<RootDashboard />} />
+          <Route index element={<RootDashboard />} />
         </Route>
         <Route path="student" element={
           <ExamProvider>
             <StudentLayout />
           </ExamProvider>
         }>
-          <Route path="" element={<StudentDashboard />} />
+          <Route index element={<StudentDashboard />} />
           <Route path="orders" element={<Orders />} />
         </Route>
       </Route>
