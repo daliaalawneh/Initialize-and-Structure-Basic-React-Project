@@ -13,10 +13,10 @@ export enum UserRole {
   root = "root"
 }
 export type UserRoleType = {
-  type: UserRole
+  type: UserRole | null
 }
 const Router = () => {
-  const userRole: UserRoleType = { type: UserRole.student };
+  const userRole: UserRoleType = { type: null };
   return (
     <Routes>
       <Route path="/" element={
@@ -35,6 +35,7 @@ const Router = () => {
           <Route path="orders" element={<Orders />} />
         </Route>
       </Route>
+      <Route path="/unauthenticated" element ={ <>Unauthenticated</>}></Route>
     </Routes>
   )
 }
