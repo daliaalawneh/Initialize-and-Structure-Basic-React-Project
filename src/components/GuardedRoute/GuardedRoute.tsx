@@ -8,7 +8,9 @@ interface GuardedRouteProps {
 }
 
 const GuardedRoute: React.FC<GuardedRouteProps> = ({ role, children }) => {
-  if(!role) return <Navigate to={'/unauthenticated'} replace />;
+  if(!role) 
+    return <Navigate to={'/unauthenticated'} replace />;
+
   const location = useLocation()
   if (location.pathname === '/' || location.pathname.startsWith(`/${role}`)) {
     return children
